@@ -19,7 +19,7 @@ namespace SmartHub.Api.Endpoints.Slips
 
             var response = await handler.CreateAsync(request);
 
-            return response.IsSucess ? TypedResults.Created($"v1/slips/{response.Data?.Id}") : TypedResults.BadRequest(response);
+            return response.IsSucess ? TypedResults.Created($"v1/slips/{response.Data?.Id}", response) : TypedResults.BadRequest(response);
         }
     }
 }

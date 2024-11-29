@@ -33,6 +33,8 @@ namespace SmartHub.Web.Pages.Clients
         {
             IsBusy = true;
 
+            Console.WriteLine(Request);
+
             try
             {
                 var result = await Handler.CreateAsync(Request);

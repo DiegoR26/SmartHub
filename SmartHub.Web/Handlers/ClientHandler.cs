@@ -14,6 +14,9 @@ namespace SmartHub.Web.Handlers
         {
             var result = await _httpClient.PostAsJsonAsync("v1/clients", request);
 
+            var responseContent = await result.Content.ReadAsStringAsync();
+            Console.WriteLine($"Response Content: {responseContent}");
+
             return await result.Content.ReadFromJsonAsync<Response<Client?>>() ?? new Response<Client?>(null, 400, "Falha ao cadastrar cliente");
         }
 

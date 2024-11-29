@@ -34,7 +34,7 @@ namespace SmartHub.Api.Handlers
                 await context.SaveChangesAsync();
 
                 return new Response<Client?>(client, 201, "Cliente criado com sucesso!");
-            
+
             } catch (Exception e)
             {
                 Console.WriteLine(e);

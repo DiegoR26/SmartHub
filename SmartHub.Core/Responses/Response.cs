@@ -2,23 +2,24 @@
 
 namespace SmartHub.Core.Responses
 {
+    [Serializable]
     public class Response<TData>
     {
         //Código de Stat HTTP
-        private int _code = 200;
+        public int Code = 200;
 
         //Construtor para o Json
         [JsonConstructor]
         public Response()
         {
-            _code = 200;
+            Code = 200;
         }
 
         //Construtor genérico para garantir esses dados basicos
         public Response(TData data, int code = 200, string? message = null)
         {
             Data = data;
-            _code = code;
+            Code = code;
             Message = message;
         }
 
@@ -27,7 +28,7 @@ namespace SmartHub.Core.Responses
         public string? Message {  get; set; }
 
         [JsonIgnore]
-        public bool IsSucess => _code is >= 200 and <= 299;
+        public bool IsSucess => Code is >= 200 and <= 299;
 
     }
 }

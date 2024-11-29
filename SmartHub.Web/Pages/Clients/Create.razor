@@ -35,18 +35,31 @@
             }
 
         </MudSelect>
-
-        <MudTextField Label="Senha da Prefeitura" Lines="1" @bind-Value="Request.DecPassword" For="@(() => Request.DecPassword)" />
+        @if (@Request.IM != string.Empty)
+        {
+            <MudTextField Label="Senha da Prefeitura" Lines="1" @bind-Value="Request.DecPassword" For="@(() => Request.DecPassword)" />
+        }
 
         <MudTextField Label="Observações" Lines="1" @bind-Value="Request.Observations" For="@(() => Request.Observations)" />
-
-        <MudTextField Label="Perfil de Acesso ao Sefaz" Lines="1" @bind-Value="Request.SefazAccess" For="@(() => Request.SefazAccess)" />
-
+        
+        @if (Request.IE != string.Empty)
+        {
+            <MudTextField Label="Perfil de Acesso ao Sefaz" Lines="1" @bind-Value="Request.SefazAccess" For="@(() => Request.SefazAccess)" />
+        }
+        
         <MudTextField Label="Email" Lines="1" @bind-Value="Request.Email" For="@(() => Request.Email)" />
 
-        <MudButton ButtonType="ButtonType.Submit" Variant="Variant.Filled" Color="Color.Primary">
-            Salvar
-        </MudButton>
+
+        @if (IsBusy)
+        {
+            <MudProgressCircular Indeterminate="true"/>
+        }
+        else
+        {
+            <MudButton ButtonType="ButtonType.Submit" Variant="Variant.Filled" Color="Color.Primary">
+                Salvar
+            </MudButton>
+        }
 
     </EditForm>
 </MudPaper>
