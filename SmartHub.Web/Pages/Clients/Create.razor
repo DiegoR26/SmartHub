@@ -1,0 +1,52 @@
+﻿@page "/clientes/adicionar"
+@using SmartHub.Core.Models.Enums
+@inherits CreateClientPage
+
+<MudText Typo="Typo.h3">Novo Cliente</MudText>
+
+<MudPaper Class="pa-8 mt-4">
+    <EditForm Model="@Request" OnSubmit="OnValidSubmitAsync">
+        <DataAnnotationsValidator />
+
+        <MudTextField Label="Código da Empresa" Lines="1" @bind-Value="Request.Cod" For="@(() => Request.Cod)" />
+
+        <MudTextField Label="Nome da Empresa" Lines="1" HelperText="Campo Obrigatório" @bind-Value="Request.Name" For="@(() => Request.Name)" />
+
+        <MudSelect T="TaxationType" @bind-Value="Request.Taxation" For="@(() => Request.Taxation)">
+            @foreach (var taxation in Enum.GetValues(typeof(TaxationType)).Cast<TaxationType>())
+            {
+                <MudSelectItem Value="@taxation">@taxation.GetDescription()</MudSelectItem>
+            }
+        </MudSelect>
+
+        <MudTextField Label="CNPJ" Lines="1" HelperText="Campo Obrigatório" @bind-Value="Request.CNPJ" For="@(() => Request.CNPJ)" />
+
+        <MudTextField Label="Inscrição Municipal" Lines="1" @bind-Value="Request.IM" For="@(() => Request.IM)" />
+
+        <MudTextField Label="Inscrição Estadual" Lines="1" @bind-Value="Request.IE" For="@(() => Request.IE)" />
+
+        <MudTextField Label="Cidade" Lines="1" HelperText="Campo Obrigatório" @bind-Value="Request.City" For="@(() => Request.City)" />
+
+        <MudSelect T="CountryType" @bind-Value="Request.Country">
+
+            @foreach (var country in Enum.GetValues(typeof(CountryType)).Cast<CountryType>())
+            {
+                <MudSelectItem Value="@country">@country.GetDescription()</MudSelectItem>
+            }
+
+        </MudSelect>
+
+        <MudTextField Label="Senha da Prefeitura" Lines="1" @bind-Value="Request.DecPassword" For="@(() => Request.DecPassword)" />
+
+        <MudTextField Label="Observações" Lines="1" @bind-Value="Request.Observations" For="@(() => Request.Observations)" />
+
+        <MudTextField Label="Perfil de Acesso ao Sefaz" Lines="1" @bind-Value="Request.SefazAccess" For="@(() => Request.SefazAccess)" />
+
+        <MudTextField Label="Email" Lines="1" @bind-Value="Request.Email" For="@(() => Request.Email)" />
+
+        <MudButton ButtonType="ButtonType.Submit" Variant="Variant.Filled" Color="Color.Primary">
+            Salvar
+        </MudButton>
+
+    </EditForm>
+</MudPaper>

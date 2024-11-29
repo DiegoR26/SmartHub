@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmartHub.Api", "SmartHub.Api\SmartHub.Api.csproj", "{4CAFE672-6035-4523-92E5-93ABA0173BCD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmartHub.Core", "SmartHub.Core\SmartHub.Core.csproj", "{151AEB7E-AF6B-4094-BD0E-37597F6B7315}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmartHub.Web", "SmartHub.Web\SmartHub.Web.csproj", "{743E27F3-F4F5-4621-A0FE-140F1B849870}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4CAFE672-6035-4523-92E5-93ABA0173BCD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4CAFE672-6035-4523-92E5-93ABA0173BCD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4CAFE672-6035-4523-92E5-93ABA0173BCD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4CAFE672-6035-4523-92E5-93ABA0173BCD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{151AEB7E-AF6B-4094-BD0E-37597F6B7315}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{151AEB7E-AF6B-4094-BD0E-37597F6B7315}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{151AEB7E-AF6B-4094-BD0E-37597F6B7315}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{151AEB7E-AF6B-4094-BD0E-37597F6B7315}.Release|Any CPU.Build.0 = Release|Any CPU
+		{743E27F3-F4F5-4621-A0FE-140F1B849870}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{743E27F3-F4F5-4621-A0FE-140F1B849870}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{743E27F3-F4F5-4621-A0FE-140F1B849870}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{743E27F3-F4F5-4621-A0FE-140F1B849870}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
