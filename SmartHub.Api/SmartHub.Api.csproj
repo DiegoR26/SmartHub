@@ -21,7 +21,6 @@
   <ItemGroup>
     <Folder Include="Endpoints\Clients\" />
     <Folder Include="Endpoints\Declarations\" />
-    <Folder Include="Handlers\" />
   </ItemGroup>
 
   <PropertyGroup>

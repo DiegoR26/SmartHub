@@ -2,6 +2,7 @@ using SmartHub.Api.Common.Api;
 using SmartHub.Api.Endpoints.Clients;
 using SmartHub.Api.Endpoints.Declarations;
 using SmartHub.Api.Endpoints.Slips;
+using SmartHub.Api.Endpoints.Associations;
 
 namespace SmartHub.Api.Endpoints
 {
@@ -35,6 +36,14 @@ namespace SmartHub.Api.Endpoints
                                             .MapEndpoint<GetSlipByIdEndpoint>()
                                             .MapEndpoint<GetSlipsByCompetenceEndpoint>()
                                             .MapEndpoint<UpdateSlipEndpoint>();
+
+            endpoints.MapGroup("v1/associations").WithTags("Associations")
+                                                    .MapEndpoint<CreateAssociationEndpoint>()
+                                                    .MapEndpoint<DeleteAssociationEndpoint>()
+                                                    .MapEndpoint<GetAllAssociationsEndpoint>()
+                                                    .MapEndpoint<GetAssociationByIdEndpoint>()
+                                                    .MapEndpoint<GetAssociationsByClientEndpoint>()
+                                                    .MapEndpoint<UpdateAssociationEndpoint>();
         }
 
         private static IEndpointRouteBuilder MapEndpoint<TEndpoint>(this IEndpointRouteBuilder app) where TEndpoint : IEndpoint

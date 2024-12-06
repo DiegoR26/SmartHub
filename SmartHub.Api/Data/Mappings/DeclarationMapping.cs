@@ -41,7 +41,6 @@ namespace SmartHub.Api.Data.Mappings
                    .IsUnique()
                    .HasDatabaseName("IX_Declaration_Client_Competence");
 
-
         }
     }
 }

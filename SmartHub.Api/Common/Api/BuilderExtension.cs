@@ -3,6 +3,7 @@ using SmartHub.Api.Data.Mappings;
 using SmartHub.Api.Handlers;
 using SmartHub.Core;
 using SmartHub.Core.Handlers;
+using SmartHub.Core.Models;
 
 namespace SmartHub.Api.Common.Api
 {
@@ -25,7 +26,7 @@ namespace SmartHub.Api.Common.Api
 
         public static void AddDataContexts(this WebApplicationBuilder builder)
         {
-            builder.Services.AddDbContext<AppDbContext>(options => options.UseSqlite("Data Source=C:\\DiegoDB\\SmartHub.db"));
+            builder.Services.AddDbContext<AppDbContext>(options => options.UseSqlite("Data Source=C:\\DataBases\\SmartHub.db"));
         }
 
         public static void AddCrossOrigin(this WebApplicationBuilder builder)
@@ -47,6 +48,7 @@ namespace SmartHub.Api.Common.Api
             builder.Services.AddTransient<IClientHandler, ClientHandler>();
             builder.Services.AddTransient<IDeclarationHandler, DeclarationHandler>();
             builder.Services.AddTransient<ISlipHandler, SlipHandler>();
+            builder.Services.AddTransient<IAssociationHandler, AssociationHandler>();
         }
     }
 }

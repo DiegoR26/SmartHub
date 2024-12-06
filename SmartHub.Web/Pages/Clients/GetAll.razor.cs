@@ -12,8 +12,9 @@ namespace SmartHub.Web.Pages.Clients
         #region Properties
 
         public bool IsBusy { get; set; } = false;
-
         public List<Client> Clients { get; set; } = new();
+        
+        public string _searchString;
 
         #endregion
 
@@ -64,6 +65,21 @@ namespace SmartHub.Web.Pages.Clients
         #endregion
 
         #region Methods
+
+        public Func<Client, bool> _quickFilter => x =>
+        {
+            if (string.IsNullOrWhiteSpace(_searchString))
+                return true;
+
+            if (x.Name.Contains(_searchString, StringComparison.OrdinalIgnoreCase))
+                return true;
+
+            if (x.Cod.Contains(_searchString, StringComparison.OrdinalIgnoreCase))
+                return true;
+
+            return false;
+        };
+
 
         public async void OnDeleteButtonClickedAsync(int id, string client)
         {

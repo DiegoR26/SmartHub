@@ -40,7 +40,7 @@
             <MudTextField Label="Senha da Prefeitura" Lines="1" @bind-Value="Request.DecPassword" For="@(() => Request.DecPassword)" />
         }
 
-        <MudTextField Label="Observações" Lines="1" @bind-Value="Request.Observations" For="@(() => Request.Observations)" />
+        <MudTextField Label="Observações" Lines="5" @bind-Value="Request.Observations" For="@(() => Request.Observations)" />
         
         @if (Request.IE != string.Empty)
         {

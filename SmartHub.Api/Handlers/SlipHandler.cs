@@ -18,7 +18,7 @@ namespace SmartHub.Api.Handlers
 
                 if (exists)
                 {
-                    return new Response<Slip?>(null, 409, "guia já existe para esta competência.");
+                    return new Response<Slip?>(null, 409, "Guia já existe para esta competência.");
                 }
 
                 var slip = new Slip

@@ -11,6 +11,7 @@ namespace SmartHub.Api.Data.Mappings
         public DbSet<Client> Clients { get; set; } = null!;
         public DbSet<Declaration> Declarations { get; set; } = null!;
         public DbSet<Slip> Slips { get; set; } = null!;
+        public DbSet<Association> Associations { get; set; } = null!;
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

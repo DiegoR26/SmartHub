@@ -29,6 +29,14 @@ namespace SmartHub.Core.Models
         /* --- Guias --- */
         public ICollection<Slip> Slips { get; set; } = new List<Slip>();
 
+        /* --- Associações --- */
+        public ICollection<Association> Associations { get; set; } = new List<Association>();
+
+        /* --- Referencias --- */
+
+        public string CodAndName() => $"{Cod} - {Name}";
+
+        public string CityAndCountry() => $"{City} / {Country}";
         public Client()
         {
         }

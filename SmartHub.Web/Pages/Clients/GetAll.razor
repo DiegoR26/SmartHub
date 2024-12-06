@@ -2,31 +2,80 @@
 @using SmartHub.Core.Models.Enums
 @inherits GetAllClientsPage
 
-<MudText Typo="Typo.h3">Clientes</MudText>
-
 <div class="d-flex justify-end">
-    <MudButton Variant="Variant.Filled" Color="Color.Primary" StartIcon="@Icons.Material.Filled.Add" Href="/clientes/adicionar">
+    <MudButton Variant="Variant.Filled" Color="Color.Primary" StartIcon="@Icons.Material.Filled.Add" Href="/clientes/adicionar" Class="mt-4">
         Adicionar Cliente
     </MudButton>
 </div>
 
-<MudDataGrid Class="mt-4" Items="@Clients" Filterable="true">
+<MudDataGrid Class="mt-4" Items="@Clients" Filterable="true" QuickFilter="@_quickFilter" Hover="true">
+    <ToolBarContent>
+        <MudText Typo="Typo.h6">Clientes</MudText>
+        <MudSpacer />
+        <MudTextField @bind-Value="_searchString" Placeholder="Procurar..." Adornment="Adornment.Start" AdornmentIcon="@Icons.Material.Filled.Search" IconSize="Size.Medium" Class="mt-0" />
+    </ToolBarContent>
     <Columns>
-        <PropertyColumn Property="x => x.Cod" Title="Código"/>
-        <PropertyColumn Property="x => x.Name" Title="Nome da Empresa" />
+        <HierarchyColumn />
+        <PropertyColumn Property="x => x.Name" Title="Empresa" />
         <PropertyColumn Property="x => x.Taxation.GetDescription()" Title="Tributação" />
-        <PropertyColumn Property="x => x.IM" Title="Inscr. Municipal" />
-        <PropertyColumn Property="x => x.IE" Title="Inscr. Estadual" />
-        <PropertyColumn Property="x => x.City" Title="Prefeitura" />
-        <PropertyColumn Property="x => x.Country" Title="UF" />
-        <PropertyColumn Property="x => x.DecPassword" Title="Senha DecWeb" />
-        <TemplateColumn Class="d-flex justify-end">
+        <PropertyColumn Property="x => x.CityAndCountry()" Title="Prefeitura" />
+        @* <TemplateColumn Class="d-flex justify-end">
             <CellTemplate>
                 <MudStack Row>
-                    <MudIconButton Icon="@Icons.Material.Filled.Edit" Color="Color.Primary"/>
-                    <MudIconButton Icon="@Icons.Material.Filled.Delete" Color="Color.Error" OnClick="()=> OnDeleteButtonClickedAsync(context.Item.Id, context.Item.Name)"/>
+                    <MudIconButton Size="@Size.Small" Icon="@Icons.Material.Filled.Edit" Color="Color.Primary" />
+                    <MudIconButton Size="@Size.Small" Icon="@Icons.Material.Filled.Delete" Color="Color.Error" OnClick="()=> OnDeleteButtonClickedAsync(context.Item.Id, context.Item.Name)" />
                 </MudStack>
             </CellTemplate>
-        </TemplateColumn>
+        </TemplateColumn> *@
     </Columns>
+    <ChildRowContent>
+        <MudCard>
+            <MudCardHeader>
+                <CardHeaderContent>
+                    <MudStack Row>
+                        <MudText Typo="Typo.h6">@context.Item.Name</MudText>
+                        <MudIconButton Size="@Size.Small" Icon="@Icons.Material.Outlined.CopyAll" Color="Color.Primary" />
+                    </MudStack>
+                </CardHeaderContent>
+            </MudCardHeader>
+            <MudCardContent>
+                <MudStack Row Justify="Justify.SpaceAround" Wrap="Wrap.Wrap" AlignItems="AlignItems.Start">
+
+                    <MudStack Row AlignItems="AlignItems.Center">
+                        <MudText Typo="Typo.body2">Código</MudText>
+                        <MudText Typo="Typo.body2">@context.Item.Cod</MudText>
+                    </MudStack>
+
+                    <MudStack Row AlignItems="AlignItems.Center">
+                        <MudText Typo="Typo.body2">CNPJ</MudText>
+                        <MudText Typo="Typo.body2">@context.Item.CNPJ</MudText>
+                        <MudIconButton Size="@Size.Small" Icon="@Icons.Material.Outlined.CopyAll" Color="Color.Primary" />
+                    </MudStack>
+
+                    <MudStack Row AlignItems="AlignItems.Center">
+                        <MudText Typo="Typo.body2">Inscr. Municipal</MudText>
+                        <MudText Typo="Typo.body2">@context.Item.IM</MudText>
+                        <MudIconButton Size="@Size.Small" Icon="@Icons.Material.Outlined.CopyAll" Color="Color.Primary" />
+                    </MudStack>
+
+                    <MudStack Row AlignItems="AlignItems.Center">
+                        <MudText Typo="Typo.body2">Inscr. Estadual</MudText>
+                        <MudText Typo="Typo.body2">@context.Item.IE</MudText>
+                        <MudIconButton Size="@Size.Small" Icon="@Icons.Material.Outlined.CopyAll" Color="Color.Primary" />
+                    </MudStack>
+
+                    <MudStack Row AlignItems="AlignItems.Center">
+                        <MudText Typo="Typo.body2">Senha Dec</MudText>
+                        <MudText Typo="Typo.body2">@context.Item.DecPassword</MudText>
+                        <MudIconButton Size="@Size.Small" Icon="@Icons.Material.Outlined.CopyAll" Color="Color.Primary" />
+                    </MudStack>
+
+                </MudStack>
+            </MudCardContent>
+            <MudCardActions>
+                <MudIconButton Size="@Size.Medium" Icon="@Icons.Material.Filled.Edit" Color="Color.Primary" />
+                <MudIconButton Size="@Size.Medium" Icon="@Icons.Material.Filled.Delete" Color="Color.Error" OnClick="()=> OnDeleteButtonClickedAsync(context.Item.Id, context.Item.Name)" />
+            </MudCardActions>
+        </MudCard>
+    </ChildRowContent>
 </MudDataGrid>
