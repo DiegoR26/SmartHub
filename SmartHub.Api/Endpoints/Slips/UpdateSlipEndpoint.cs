@@ -20,7 +20,7 @@ namespace SmartHub.Api.Endpoints.Slips
 
             var response = await handler.UpdateAsync(request);
 
-            return response.IsSucess ? TypedResults.Ok(response) : TypedResults.BadRequest(response);
+            return response.IsSuccess ? TypedResults.Ok(response) : TypedResults.BadRequest(response);
         }
     }
 }

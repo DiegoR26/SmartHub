@@ -13,7 +13,7 @@ namespace SmartHub.Api.Endpoints.Slips
             app.MapDelete("/{id}", HandleAsync).WithName("Slips: Delete").Produces<Response<Slip?>>();
         }
 
-        //O id dentro dos parametros precisa ter o mesmo nome do "id" determinado na rota, então os dois minusculos
+        //O id dentro dos parametros precisa ter o mesmo nome do "id" determinado na rota, entï¿½o os dois minusculos
         private static async Task<IResult> HandleAsync(ISlipHandler handler, int id)
         {
             var request = new DeleteSlipRequest
@@ -24,7 +24,7 @@ namespace SmartHub.Api.Endpoints.Slips
 
             var response = await handler.DeleteAsync(request);
 
-            return response.IsSucess ? TypedResults.Ok(response) : TypedResults.BadRequest(response);
+            return response.IsSuccess ? TypedResults.Ok(response) : TypedResults.BadRequest(response);
         }
     }
 }

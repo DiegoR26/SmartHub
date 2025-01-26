@@ -19,7 +19,7 @@ namespace SmartHub.Api.Endpoints.Associations
 
             var response = await handler.CreateAsync(request);
 
-            return response.IsSucess ? TypedResults.Created($"v1/associations/{response.Data?.Id}", response) : TypedResults.BadRequest(response);
+            return response.IsSuccess ? TypedResults.Created($"v1/associations/{response.Data?.Id}", response) : TypedResults.BadRequest(response);
         }
     }
 }

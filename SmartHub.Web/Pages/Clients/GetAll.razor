@@ -19,14 +19,6 @@
         <PropertyColumn Property="x => x.Name" Title="Empresa" />
         <PropertyColumn Property="x => x.Taxation.GetDescription()" Title="Tributação" />
         <PropertyColumn Property="x => x.CityAndCountry()" Title="Prefeitura" />
-        @* <TemplateColumn Class="d-flex justify-end">
-            <CellTemplate>
-                <MudStack Row>
-                    <MudIconButton Size="@Size.Small" Icon="@Icons.Material.Filled.Edit" Color="Color.Primary" />
-                    <MudIconButton Size="@Size.Small" Icon="@Icons.Material.Filled.Delete" Color="Color.Error" OnClick="()=> OnDeleteButtonClickedAsync(context.Item.Id, context.Item.Name)" />
-                </MudStack>
-            </CellTemplate>
-        </TemplateColumn> *@
     </Columns>
     <ChildRowContent>
         <MudCard>

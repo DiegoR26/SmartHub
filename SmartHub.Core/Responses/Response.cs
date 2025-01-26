@@ -28,7 +28,7 @@ namespace SmartHub.Core.Responses
         public string? Message {  get; set; }
 
         [JsonIgnore]
-        public bool IsSucess => Code is >= 200 and <= 299;
+        public bool IsSuccess => Code is >= 200 and <= 299;
 
     }
 }

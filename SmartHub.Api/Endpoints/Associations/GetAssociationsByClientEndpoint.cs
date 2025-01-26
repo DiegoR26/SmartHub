@@ -23,7 +23,7 @@ namespace SmartHub.Api.Endpoints.Associations
 
             var response = await handler.GetByClientAsync(request);
 
-            return response.IsSucess ? TypedResults.Ok(response) : TypedResults.BadRequest(response);
+            return response.IsSuccess ? TypedResults.Ok(response) : TypedResults.BadRequest(response);
         }
     }
 }

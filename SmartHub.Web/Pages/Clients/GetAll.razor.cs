@@ -47,7 +47,7 @@ namespace SmartHub.Web.Pages.Clients
 
                 var result = await Handler.GetAllAsync(request);
                 
-                if (result.IsSucess)
+                if (result.IsSuccess)
                 {
                     Clients = result.Data ?? [];
                 }

@@ -25,7 +25,7 @@ namespace SmartHub.Api.Endpoints.Declarations
 
             var response = await handler.GetByCompetenceAsync(request);
 
-            return response.IsSucess ? TypedResults.Ok(response) : TypedResults.BadRequest(response);
+            return response.IsSuccess ? TypedResults.Ok(response) : TypedResults.BadRequest(response);
         }
     }
 }

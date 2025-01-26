@@ -13,7 +13,7 @@ namespace SmartHub.Api.Endpoints.Clients
             app.MapDelete("/{id}", HandleAsync).WithName("Clients: Delete").Produces<Response<Client?>>();
         }
 
-        //O id dentro dos parametros precisa ter o mesmo nome do "id" determinado na rota, então os dois minusculos
+        //O id dentro dos parametros precisa ter o mesmo nome do "id" determinado na rota, entï¿½o os dois minusculos
         private static async Task<IResult> HandleAsync(IClientHandler handler, int id)
         {
             var request = new DeleteClientRequest
@@ -24,7 +24,7 @@ namespace SmartHub.Api.Endpoints.Clients
 
             var response = await handler.DeleteAsync(request);
 
-            return response.IsSucess ? TypedResults.Ok(response) : TypedResults.BadRequest(response);
+            return response.IsSuccess ? TypedResults.Ok(response) : TypedResults.BadRequest(response);
         }
     }
 }

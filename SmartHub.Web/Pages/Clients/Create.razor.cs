@@ -33,13 +33,11 @@ namespace SmartHub.Web.Pages.Clients
         {
             IsBusy = true;
 
-            Console.WriteLine(Request);
-
             try
             {
                 var result = await Handler.CreateAsync(Request);
 
-                if (result.IsSucess)
+                if (result.IsSuccess)
                 {
                     Snackbar.Add(result.Message, Severity.Success);
                     NavigationManager.NavigateTo("/clientes");
