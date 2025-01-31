@@ -1,10 +1,13 @@
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using SmartHub.Api.Models;
 using SmartHub.Core.Models;
 using System.Reflection;
 
 namespace SmartHub.Api.Data.Mappings
 {
-    public class AppDbContext : DbContext
+    public class AppDbContext : IdentityDbContext<User, IdentityRole<int>, int>
     {
         public AppDbContext(DbContextOptions options) : base(options) { }
 
