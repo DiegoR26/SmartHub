@@ -1,17 +1,51 @@
 ﻿@inherits LayoutComponentBase
 
-<MudThemeProvider IsDarkMode="true"/>
-<MudDialogProvider/>
-<MudSnackbarProvider/>
-<MudPopoverProvider/>
+<MudThemeProvider IsDarkMode="true" />
+<MudDialogProvider />
+<MudSnackbarProvider />
+<MudPopoverProvider />
 
 <MudLayout>
-    <MudAppBar>
-        SmartHub
+    <MudAppBar Elevation="1" Dense="false">
+
+        <MudIconButton Icon="@Icons.Material.Filled.Menu" Color="Color.Inherit" Edge="Edge.Start" OnClick="@ToggleDrawer" />
+
+        <MudButton Href="/" Variant="Variant.Filled" Color="Color.Primary">
+            SmartHub
+        </MudButton>
+
+        <MudSpacer />
+
+        <MudMenu Dense Variant="Variant.Text" Size="Size.Medium" Color="Color.Inherit" Icon="@Icons.Material.TwoTone.MoreVert">
+
+            <MudMenuItem Href="/" ForceLoad Icon="@Icons.Material.TwoTone.Login" IconColor="Color.Primary">
+                Login
+            </MudMenuItem>
+            <MudMenuItem Href="/" ForceLoad Icon="@Icons.Material.TwoTone.Logout" IconColor="Color.Primary">
+                Logout
+            </MudMenuItem>
+        </MudMenu>
     </MudAppBar>
+
+    <MudDrawer @bind-Open="@_open" ClipMode="DrawerClipMode.Always" Breakpoint="Breakpoint.Md" Elevation="1" Variant="@DrawerVariant.Mini">
+        <MudNavMenu>
+            <MudNavLink Href="/clientes" Match="NavLinkMatch.All" Icon="@Icons.Material.Filled.Groups">Clientes</MudNavLink>
+            <MudNavLink Href="/" Match="NavLinkMatch.All" Icon="@Icons.Material.Filled.Apps">Ferramentas</MudNavLink>
+            <MudNavLink Href="/" Match="NavLinkMatch.All" Icon="@Icons.Material.Filled.Settings">Configurações</MudNavLink>
+        </MudNavMenu>
+    </MudDrawer>
     <MudMainContent>
         <MudContainer MaxWidth="MaxWidth.ExtraLarge">
             @Body
         </MudContainer>
     </MudMainContent>
 </MudLayout>
+
+@code {
+    private bool _open = false;
+
+    private void ToggleDrawer()
+    {
+        _open = !_open;
+    }
+}
